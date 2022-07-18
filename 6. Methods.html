@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Vue Js Video 5</title>
+    <style>
+        body{
+            margin:5%;
+            font-family:'Quicsand', sans-serif;
+        }
+    </style>
+    <!-- Menyisipkan Vuejs dari CDN -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="subject">
+        <h3>Belajar {{ subject }}</h3>
+        <button v-on:click="MakeFun">Make It Fun</button>
+        <button v-on:click="check()">Check Subject</button>
+
+        <p>Nilai {{score}}</p>
+    </div>
+</body>
+<script>
+    const app={
+        data(){
+            return{
+                subject: "VueJs",
+                score :0
+            }
+        },
+        methods:{
+            MakeFun(){
+                this.subject = this.subject+"!!!"
+            },
+            check(){
+                if(this.subject === 'VueJs')
+                    this.score =100
+                else
+                    this.score = 50
+            }
+        }
+    }
+    Vue.createApp(app).mount('#app')
+</script>
+</html>

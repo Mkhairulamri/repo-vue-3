@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Vue Js Video 5</title>
+    <style>
+        body{
+            margin:5%;
+            font-family:'Quicsand', sans-serif;
+        }
+        .active{
+            color:green
+        }
+    </style>
+    <!-- Menyisipkan Vuejs dari CDN -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>Belajar VueJS</h3>
+
+        <ol class="list":class="{active:isActive,box:true}">
+            <li v-for="subject in subjects">
+                {{subject.title}} -Type- {{subject.type}}
+            </li>
+        </ol>
+
+        <button @click="activate()">Activate</button>
+
+    </div>
+</body>
+<script>
+    const app={
+        data(){
+            return{
+                subjects:[
+                    {title:'Javascript',type:'native'},
+                    {title:'vue',type:'framework'},
+                    {title:'nextJS',type:'framework'}
+
+                ],
+                isActive:false
+            }
+        },
+        methods:{
+            activate(){
+                this.isActive = !this.isActive
+            }
+        }
+    }
+    Vue.createApp(app).mount('#app')
+</script>
+</html>

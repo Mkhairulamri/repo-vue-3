@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Vue Js Video 5</title>
+    <style>
+        body{
+            margin:5%;
+            font-family:'Quicsand', sans-serif;
+        }
+    </style>
+    <!-- Menyisipkan Vuejs dari CDN -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+   <div id="vuejs">
+       <input type="text" v-model="name">
+       <input type="number" v-model="age">
+
+       <p>
+           Namanya {{name}}, umur {{age}}, wah {{expression}}
+       </p>
+   </div>
+</body>
+<script>
+
+// menggunakan method computed properties untuk melakukan komputasi/proses logika
+
+    const app={
+        data(){
+            return{
+                name:'hilman',
+                age:100
+            }
+        },
+        computed:{
+            expression(){
+                if(this.age <= 40 && this.age>0)
+                    return "Muda sekali"
+                if(this.age >= 41 && this.age<=100)
+                    return "Tua sekali"
+                else
+                    return "tidak tedeteksi"
+            }
+        }
+    }
+    Vue.createApp(app).mount('#vuejs')
+</script>
+</html>
